@@ -1,15 +1,20 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
+import { login } from "../../context/authContext/apiCalls";
+import { AuthContext } from "../../context/authContext/AuthContext";
 import "./login.css";
 
 function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
+  //   context
+  const { dispatch, isFetching, error } = useContext(AuthContext);
+
   //   handleLogin
   const handleLogin = (e) => {
     e.preventDefault();
 
-    console.log(email, password);
+    login({ email, password }, dispatch);
   };
 
   return (
@@ -27,9 +32,18 @@ function Login() {
           className="loginInput"
           onChange={(e) => setPassword(e.target.value)}
         />
-        <button className="loginButton" onClick={handleLogin}>
+        <button
+          className="loginButton"
+          onClick={handleLogin}
+          disabled={isFetching}
+        >
           Login
         </button>
+        {error && (
+          <span style={{ color: "red", marginTop: "10px" }}>
+            Something went wrong!
+          </span>
+        )}
       </form>
     </div>
   );
