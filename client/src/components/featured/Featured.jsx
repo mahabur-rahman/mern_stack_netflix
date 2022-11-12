@@ -3,7 +3,7 @@ import "./featured.scss";
 import axios from "axios";
 import { useState, useEffect } from "react";
 
-export default function Featured({ type }) {
+export default function Featured({ type, setGenre }) {
   const [content, setContent] = useState([]);
 
   // get random movie
@@ -29,14 +29,18 @@ export default function Featured({ type }) {
       {type && (
         <div className="category">
           <span>{type === "movies" ? "Movies" : "Series"}</span>
-          <select name="genre" id="genre">
+          <select
+            name="genre"
+            id="genre"
+            onChange={(e) => setGenre(e.target.value)}
+          >
             <option>Genre</option>
             <option value="adventure">Adventure</option>
-            <option value="comedy">Comedy</option>
+            <option value="comedy">comedy</option>
             <option value="crime">Crime</option>
             <option value="fantasy">Fantasy</option>
             <option value="historical">Historical</option>
-            <option value="horror">Horror</option>
+            <option value="horror">horror</option>
             <option value="romance">Romance</option>
             <option value="sci-fi">Sci-fi</option>
             <option value="thriller">Thriller</option>
