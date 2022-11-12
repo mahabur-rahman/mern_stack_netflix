@@ -22,6 +22,28 @@ const MovieReducer = (state, action) => {
         error: true,
       };
 
+    // create movie
+    case "CREATE_MOVIE_START":
+      return {
+        ...state,
+        isFetching: true,
+        error: false,
+      };
+
+    case "CREATE_MOVIE_SUCCESS":
+      return {
+        movies: [...state.movies, action.payload],
+        isFetching: false,
+        error: false,
+      };
+
+    case "CREATE_MOVIE_FAILURE":
+      return {
+        ...state,
+        isFetching: false,
+        error: true,
+      };
+
     // delete movies
     case "DELETE_MOVIE_START":
       return {

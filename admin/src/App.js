@@ -44,10 +44,10 @@ function App() {
               <Route path="/movies">
                 <ProductList />
               </Route>
-              <Route path="/movies/:productId">
+              <Route path="/movie/:productId">
                 <Product />
               </Route>
-              <Route path="/newproduct">
+              <Route path="/new-movie">
                 <NewProduct />
               </Route>
             </Switch>
