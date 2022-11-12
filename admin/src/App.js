@@ -14,6 +14,8 @@ import { AuthContext } from "./context/authContext/AuthContext";
 import { useContext } from "react";
 import { Redirect } from "react-router-dom/cjs/react-router-dom.min";
 import ListOfList from "./pages/listOfList/ListOfList";
+import List from "./pages/list/List";
+import NewList from "./pages/newList/NewList";
 
 function App() {
   const { user } = useContext(AuthContext);
@@ -62,6 +64,14 @@ function App() {
 
               <Route path="/lists">
                 <ListOfList />
+              </Route>
+
+              <Route path="/list/:id">
+                <List />
+              </Route>
+
+              <Route path="/new-list">
+                <NewList />
               </Route>
             </Switch>
           </div>

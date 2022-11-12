@@ -13,6 +13,21 @@ export const getListsFailure = () => ({
 });
 
 // CREATE LIST
+
+export const createListStart = () => ({
+  type: "CREATE_LIST_START",
+});
+
+export const createListSuccess = (lists) => ({
+  type: "CREATE_LIST_SUCCESS",
+  payload: lists,
+});
+
+export const createListFailure = () => ({
+  type: "CREATE_LIST_FAILURE",
+});
+
+// DELETE LIST
 export const deleteListStart = () => ({
   type: "DELETE_LIST_START",
 });
@@ -25,5 +40,3 @@ export const deleteListSuccess = (id) => ({
 export const deleteListFailure = () => ({
   type: "DELETE_LIST_FAILURE",
 });
-
-// DELETE LIST
